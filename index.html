@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Web PRO</title>
+
+<!-- SEO -->
+<meta name="description" content="Создавай сайты с помощью ИИ, зарабатывай и автоматизируй процессы.">
+<meta name="keywords" content="AI, сайты, автоматизация, PRO, чат, подписка">
+<meta name="robots" content="index, follow">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-XXXXXXX-X');
+</script>
+
+<!-- AOS animations -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',sans-serif; background:black; color:white; overflow-x:hidden; }
+
+/* VIDEO BACKGROUND */
+.video-bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; overflow:hidden; }
+.video-bg video { width:100%; height:100%; object-fit:cover; opacity:0.35; filter: brightness(0.6) contrast(1.2); }
+
+/* SECTIONS */
+section { padding:100px 20px; text-align:center; }
+
+/* HERO */
+.hero h1 { font-size:3rem; margin-bottom:20px; }
+.hero p { font-size:1.2rem; opacity:0.8; }
+
+/* CARDS */
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; margin-top:60px; }
+.card { background: rgba(255,255,255,0.08); backdrop-filter: blur(15px); border-radius:20px; padding:30px; transition: transform 0.4s, box-shadow 0.4s; cursor:pointer; }
+.card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 0 30px rgba(0,255,255,0.4); }
+
+/* FORM */
+.form-box { max-width:400px; margin:40px auto; background: rgba(255,255,255,0.08); padding:30px; border-radius:20px; backdrop-filter: blur(15px); }
+input, textarea, button { width:100%; padding:15px; margin-top:15px; border-radius:10px; border:none; outline:none; }
+input, textarea { background:#111; color:white; resize:none; }
+button { background: linear-gradient(45deg, #00ffe7, #0066ff); color:white; font-weight:bold; cursor:pointer; }
+button:hover { opacity:0.85; }
+button:active { transform: scale(0.98); }
+
+/* INSTAGRAM-LIKE FEED */
+.feed { display:flex; gap:20px; overflow-x:auto; padding-bottom:20px; }
+.feed::-webkit-scrollbar { height:8px; }
+.feed::-webkit-scrollbar-thumb { background:#00ffe7; border-radius:10px; }
+
+/* MOBILE */
+@media(max-width:600px) { .hero h1{ font-size:2.2rem; } section{ padding:60px 15px; } }
+</style>
+</head>
+<body>
+
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg">
+    <video autoplay muted loop>
+        <source src="https://cdn.coverr.co/videos/coverr-futuristic-network-9175/1080p.mp4" type="video/mp4">
+    </video>
+</div>
+
+<!-- HERO -->
+<section class="hero" data-aos="fade-up">
+    <h1>Будущее сайтов через ИИ</h1>
+    <p>Создавай • Автоматизируй • Зарабатывай</p>
+</section>
+
+<!-- FEATURES -->
+<section data-aos="fade-up">
+    <div class="cards">
+        <div class="card" data-aos="fade-right">
+            <h3>⚡ ChatGPT</h3>
+            <p>Быстрые прототипы и лендинги</p>
+        </div>
+        <div class="card" data-aos="fade-up">
+            <h3>🧠 Claude AI</h3>
+            <p>Сложная логика и автоматизация</p>
+        </div>
+        <div class="card" data-aos="fade-left">
+            <h3>🚀 Lovable AI</h3>
+            <p>Полноценные порталы и стартапы</p>
+        </div>
+    </div>
+</section>
+
+<!-- PRO SUBSCRIPTION -->
+<section data-aos="zoom-in">
+    <h2>Перейти на PRO</h2>
+    <button id="pro-btn">Стать PRO</button>
+</section>
+
+<!-- REGISTRATION -->
+<section data-aos="fade-up">
+    <h2>Регистрация</h2>
+    <div class="form-box">
+        <input type="text" placeholder="Имя" id="reg-name">
+        <input type="email" placeholder="Email" id="reg-email">
+        <input type="password" placeholder="Пароль" id="reg-pass">
+        <button id="reg-btn">Зарегистрироваться</button>
+    </div>
+</section>
+
+<!-- AI CHAT -->
+<section data-aos="fade-up">
+    <h2>AI-чат 🤖</h2>
+    <div class="form-box">
+        <textarea id="chat-input" placeholder="Спроси AI"></textarea>
+        <button id="chat-send">Отправить</button>
+        <div id="chat-output" style="margin-top:20px;text-align:left;"></div>
+    </div>
+</section>
+
+<!-- INSTAGRAM-LIKE FEED -->
+<section data-aos="fade-up">
+    <h2>Лента</h2>
+    <div class="feed">
+        <div class="card">Пост 1</div>
+        <div class="card">Пост 2</div>
+        <div class="card">Пост 3</div>
+        <div class="card">Пост 4</div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<section>
+    <p style="opacity:0.6">© 2026 AI Web PRO</p>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ duration:1200, once:true, offset:100 });
+
+// Эффект слежения за мышью
+const cards = document.querySelectorAll('.card');
+document.addEventListener('mousemove', e => {
+    const x = e.clientX / window.innerWidth - 0.5;
+    const y = e.clientY / window.innerHeight - 0.5;
+    cards.forEach(card => {
+        card.style.transform = `translate(${x*20}px, ${y*20}px)`;
+    });
+});
+
+// PRO кнопка
+document.getElementById('pro-btn').addEventListener('click', () => {
+    alert('Здесь будет подключение к оплате PRO-подписки через Stripe или PayPal');
+});
+
+// Регистрация
+document.getElementById('reg-btn').addEventListener('click', () => {
+    const name = document.getElementById('reg-name').value;
+    const email = document.getElementById('reg-email').value;
+    const pass = document.getElementById('reg-pass').value;
+    alert(`Регистрация: ${name}, ${email} (пароль скрыт)`);
+});
+
+// AI-чат
+document.getElementById('chat-send').addEventListener('click', () => {
+    const msg = document.getElementById('chat-input').value;
+    const output = document.getElementById('chat-output');
+    output.innerHTML += `<p><b>Ты:</b> ${msg}</p>`;
+    output.innerHTML += `<p><b>AI:</b> Привет! Я здесь, чтобы помочь.</p>`;
+});
+</script>
+
+</body>
+</html>
